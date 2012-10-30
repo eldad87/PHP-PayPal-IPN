@@ -101,6 +101,7 @@ class IpnListener {
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__).DS.'cacert.pem'); //http://davidwalsh.name/php-ssl-curl-error
         
         if ($this->force_ssl_v3) {
             curl_setopt($ch, CURLOPT_SSLVERSION, 3);
